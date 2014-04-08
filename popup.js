@@ -10,10 +10,10 @@ function addSubmitListener() {
 function getTransliterations() {
   var searchField = document.getElementById("search_field")
   var userInput = searchField.value
-  var uRegEx = /u/
-  var newTerm = userInput.replace(uRegEx, "o")
-  var searchTerm = userInput + " OR " + newTerm
-  openNewTab(searchTerm)
+  var searchTerms = [userInput]
+  searchTerms.push(userInput.replace(/u/, "o"))
+  searchTerms = searchTerms.join(" OR ")
+  openNewTab(searchTerms)
 }
 
 function openNewTab(searchTerm) {
