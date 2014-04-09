@@ -11,7 +11,13 @@ function getTransliterations() {
   var searchField = document.getElementById("search_field")
   var userInput = searchField.value
   var searchTerms = [userInput]
-  searchTerms.push(userInput.replace(/u/, "o"))
+  var regEx = {
+    "o": /u/,
+    "u": /o/
+  }
+  for (var key in regEx) {
+    searchTerms.push(userInput.replace(regEx[key], key))
+  }
   searchTerms = searchTerms.join(" OR ")
   openNewTab(searchTerms)
 }
