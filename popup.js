@@ -13,10 +13,20 @@ function getTransliterations() {
   var searchTerms = [userInput]
   var regEx = {
     "o": /u/,
-    "u": /o/
-  }
+    "u": /o/,
+    "ay": /ai/,
+    "ay": /ei/,
+    "ai": /ay/,
+    "ai": /ei/,
+    "ei": /ay/,
+    "ei": /ai/
+    }
   for (var key in regEx) {
-    searchTerms.push(userInput.replace(regEx[key], key))
+    for (i = 0; i < searchTerms.length; i++){
+      if (searchTerms[i].search(regEx[key]) != -1) {
+        searchTerms.push(searchTerms[i].replace(regEx[key], key))
+      }
+    }
   }
   searchTerms = searchTerms.join(" OR ")
   openNewTab(searchTerms)
