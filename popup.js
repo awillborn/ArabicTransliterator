@@ -19,7 +19,20 @@ function getTransliterations() {
     "ai": /ay/,
     "ai": /ei/,
     "ei": /ay/,
-    "ei": /ai/
+    "ei": /ai/,
+    "au": /aw/,
+    "aw": /au/,
+    "a": /aa/,
+    "i": /ee/,
+    "y": /yy/,
+    "b": /bb/,
+    "j": /jj/,
+    "m": /mm/,
+    "d": /dd/,
+    "r": /rr/,
+    "s": /ss/,
+    "al": /el/,
+    "el": /al/
     }
   for (var key in regEx) {
     for (i = 0; i < searchTerms.length; i++){
