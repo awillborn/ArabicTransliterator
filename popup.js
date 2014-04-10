@@ -13,16 +13,14 @@ function getTransliterations() {
   var searchTerms = [userInput]
   var regEx = {
     "o": /u/,
-    "u": /o/,
-    "ay": /ai/,
-    "ay": /ei/,
-    "ai": /ay/,
-    "ai": /ei/,
-    "ei": /ay/,
-    "ei": /ai/,
+    "u": /ou/,
+    "ei": /ay|ai/,
+    "ay": /ei|ai/,
+    "ai": /ay|ei/,
     "au": /aw/,
     "aw": /au/,
-    "a": /aa/,
+    "a": /aa|ah$/,
+    "ah": /a$/,
     "i": /ee/,
     "y": /yy/,
     "b": /bb/,
@@ -32,7 +30,9 @@ function getTransliterations() {
     "r": /rr/,
     "s": /ss/,
     "al": /el/,
-    "el": /al/
+    "el": /al/,
+    "al-": /ar-|as-|at-|ad-|az-|an-|ath-|el-/,
+    "e$2": /(a)(\w$)/,
     }
   for (var key in regEx) {
     for (i = 0; i < searchTerms.length; i++){
