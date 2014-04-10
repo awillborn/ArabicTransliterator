@@ -41,13 +41,24 @@ function getTransliterations() {
       }
     }
   }
-  searchTerms = searchTerms.join(" OR ")
+  searchTerms = findUniques(searchTerms).join(" OR ")
   openNewTab(searchTerms)
 }
 
 function openNewTab(searchTerm) {
   chrome.tabs.create({url: "http://www.scholar.google.com/scholar?q=" + searchTerm})
 }
+
+function findUniques(searchTerm) {
+  var terms = {}, uniqs = [];
+  for (var i = 0; i < searchTerm.length; i++) {
+    terms[searchTerm[i]] = searchTerm[i];
+  }
+  for(i in terms) {
+    uniqs.push(terms[i]);
+  }
+  return uniqs;
+};
 
 document.addEventListener("DOMContentLoaded", function() {
   addSubmitListener();
