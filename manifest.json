@@ -8,5 +8,8 @@
     },
   "permissions": [
     "tabs"
-  ]
+  ],
+  "icons": { "16": "Saad16.jpg",
+             "48": "Saad48.jpg",
+             "128": "Saad128.jpg" }
 }
